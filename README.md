@@ -4,5 +4,5 @@
 
 ```bash
 # jsonnet + jsonnet-bundler
-docker run -it --rm --name jsonnet -v ./:/home/usr/mnt jsonnet
+docker run -it --rm --name jsonnet -v "$(pwd):/home/mnt" jsonnet
 ```
