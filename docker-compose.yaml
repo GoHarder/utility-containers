@@ -1,0 +1,6 @@
+services:
+  jsonnet:
+   image: jsonnet:latest
+   container_name: jsonnet
+   build:
+    context: ./jsonnet
