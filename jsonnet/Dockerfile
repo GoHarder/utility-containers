@@ -8,4 +8,4 @@ RUN go install -a github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb@latest
 
 RUN mkdir -p /home/usr/mnt
 
-WORKDIR /home/user/mnt
+WORKDIR /home/usr/mnt
