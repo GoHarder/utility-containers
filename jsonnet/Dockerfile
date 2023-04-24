@@ -1,6 +1,6 @@
 FROM golang:latest
 
-RUN apt update
+RUN apt-get update
 
 RUN go install github.com/google/go-jsonnet/cmd/jsonnet@latest
 

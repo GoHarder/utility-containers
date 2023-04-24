@@ -4,3 +4,8 @@ services:
    container_name: jsonnet
    build:
     context: ./jsonnet
+  nfs-server:
+   image: nfs-server:latest
+   container_name: nfs-server
+   build:
+    context: ./nfs-server

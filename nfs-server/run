@@ -1,0 +1,21 @@
+#!/bin/bash
+
+shut_down() {
+   echo "* Stopping NFS server"
+   service nfs-kernel-server stop
+   echo "* NFS server stopped"
+   exit 0
+}
+
+trap "shut_down" SIGTERM
+
+mkdir -p /var/nfs
+chmod 777 /var/nfs
+
+echo "* Starting NFS server"
+rpcbind
+service nfs-kernel-server start
+IP="hostname -i"
+echo "* NFS server started and listening on $IP"
+
+sleep infinity & wait
