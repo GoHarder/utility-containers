@@ -6,9 +6,12 @@ echo "* Creating manifests from ${1-config}.jsonnet"
 # only exit with zero if all commands of the pipeline exit successfully
 set -o pipefail
 
+# Make sure everything is done inside the volume mount
+cd "/mnt"
+
 # Make sure to start with a clean 'manifests' dir
-rm -rf "/manifests"
-mkdir -p "/manifests/setup"
+rm -rf "./manifests"
+mkdir -p "./manifests/setup"
 
 # Calling gojsontoyaml is optional, but we would like to generate yaml, not json
 jsonnet -J vendor -m manifests "${1-config.jsonnet}" | xargs -I{} sh -c 'cat {} | gojsontoyaml > {}.yaml' -- {}
